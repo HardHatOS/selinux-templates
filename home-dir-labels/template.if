@@ -14,8 +14,8 @@ interface(`userdom_manage_MODULE',`
     gen_require(`
         type MODULE_t;
     ')
-    hardhat_userdom_user_home_dir_filetrans($1, MODULE_t, dir, "TARGET")
-    hardhat_manage_dirs_pattern($1, MODULE_t, MODULE_t)
-    hardhat_manage_files_pattern($1, MODULE_t, MODULE_t)
-    hardhat_manage_lnk_files_pattern($1, MODULE_t, MODULE_t)
+    hos_userdom_user_home_dir_filetrans($1, MODULE_t, dir, "TARGET")
+    hos_manage_dirs_pattern($1, MODULE_t, MODULE_t)
+    hos_manage_files_pattern($1, MODULE_t, MODULE_t)
+    hos_manage_lnk_files_pattern($1, MODULE_t, MODULE_t)
 ')
