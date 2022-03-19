@@ -1,0 +1,10 @@
+policy_module(MODULE, 1.0.0)
+########################################
+gen_require(`
+    attribute userdom_filetrans_type;
+')
+type MODULE_t;
+userdom_user_home_content(MODULE_t)
+ubac_constrained(MODULE_t)
+hardhat_userdom_user_home_dir_filetrans(userdom_filetrans_type, MODULE_t, dir, "TARGET")
+########################################

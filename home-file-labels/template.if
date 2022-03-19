@@ -1,0 +1,19 @@
+## <summary>policy for MODULE</summary>
+######################################
+## <summary>
+##      Manage the TARGET file(s) in the users homedir.
+## </summary>
+## <param name="domain">
+##      <summary>
+##      Domain allowed access.
+##      </summary>
+## </param>
+## <rolecap/>
+#
+interface(`userdom_manage_MODULE',`
+    gen_require(`
+        type MODULE_t;
+    ')
+    hardhat_manage_files_pattern($1, MODULE_t, MODULE_t)
+    hardhat_manage_lnk_files_pattern($1, MODULE_t, MODULE_t)
+')
