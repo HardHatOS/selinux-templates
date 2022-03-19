@@ -38,7 +38,7 @@ Description
 %{__install} -D -m 0600 %{_pp} -t %{buildroot}%{_datadir}/selinux/packages
 
 %files
-%attr(0600,root,root) %{_datadir}/selinux/packages/%{_pp}
+%attr(0600,root,root) %{_datadir}/selinux/packages/*.pp
 
 %post
 # Install the SELinux policy module
