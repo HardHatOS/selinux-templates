@@ -1,18 +1,16 @@
 BuildArch: noarch
-BuildRequires: hos-selinux-access-interfaces, make, selinux-policy-devel
-Group: System Environment/Base
-License: GPLv3
+BuildRequires: hos-devel-selinux-interfaces, make, selinux-policy-devel
+License: AGPLv3+
 Name: hos-selinux-label-MODULE
 Release: 1%{?dist}
 Requires: policycoreutils, libselinux-utils
 Source0: MODULE.te
-Source1: MODULE.if
-Summary: SELinux policy module for MODULE
-URL: https://github.com/HardHatOS/FILL-THIS-IN
+Summary: SELinux policy module for the TARGET directory
+URL: https://github.com/HardHatOS/selinux-app-MODULE
 Version: 1.0
 
 %description
-SELinux policy module (label-only) for the $HOME/TARGET directory
+SELinux policy module (label only) for the $HOME/TARGET directory
 
 %pre
 # RPM macro that defines the SELinux directory where the interface files are placed in
@@ -25,7 +23,7 @@ SELinux policy module (label-only) for the $HOME/TARGET directory
 %define _pp "%{_module}.pp"
 
 # RPM macro function for relabeling the specified file(s) and/or directory/directories
-%define relabel() restorecon -R -v /home
+%define relabel() restorecon -R -v /etc /usr
 
 %build
 # Copy the SELinux .te file to the current directory
@@ -38,12 +36,8 @@ SELinux policy module (label-only) for the $HOME/TARGET directory
 # Copy the compiled SELinux policy module to the proper directory
 %{__install} -D -m 0600 %{_pp} -t %{buildroot}%{_datadir}/selinux/packages
 
-# Copy the SELinux interface file to the proper directory
-%{__install} -D -m 0644 %{SOURCE1} -t %{buildroot}%{_contribdir}
-
 %files
 %attr(0600,root,root) %{_datadir}/selinux/packages/*.pp
-%attr(0644,root,root) %{_contribdir}/*.if
 
 %post
 # Install the SELinux policy module
