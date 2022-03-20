@@ -1,12 +1,10 @@
 BuildArch: noarch
-BuildRequires: hos-selinux-access-interfaces, make, selinux-policy-devel
-Group: System Environment/Base
-License: GPLv3
+BuildRequires: hos-devel-selinux-interfaces, make, selinux-policy-devel
+License: AGPLv3+
 Name: hos-selinux-app-MODULE
 Release: 1%{?dist}
 Requires: policycoreutils, libselinux-utils
 Source0: MODULE.te
-Source1: MODULE.if
 Summary: SELinux policy module for MODULE
 URL: https://github.com/HardHatOS/selinux-app-MODULE
 Version: 1.0
@@ -38,12 +36,8 @@ Description
 # Copy the compiled SELinux policy module to the proper directory
 %{__install} -D -m 0600 %{_pp} -t %{buildroot}%{_datadir}/selinux/packages
 
-# Copy the SELinux interface file to the proper directory
-%{__install} -D -m 0644 %{SOURCE1} -t %{buildroot}%{_contribdir}
-
 %files
 %attr(0600,root,root) %{_datadir}/selinux/packages/*.pp
-%attr(0644,root,root) %{_contribdir}/*.if
 
 %post
 # Install the SELinux policy module
