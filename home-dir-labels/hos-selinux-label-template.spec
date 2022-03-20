@@ -13,9 +13,6 @@ Version: 1.0
 SELinux policy module (label only) for the $HOME/TARGET directory
 
 %pre
-# RPM macro that defines the SELinux directory where the interface files are placed in
-%define _contribdir %{_datadir}/selinux/devel/include/contrib
-
 # RPM macro to define the name of the SELinux policy module, without a file extension and path
 %define _module "$(echo $(basename %{SOURCE0}) | %{__sed} s/\.te$//g)"
 
