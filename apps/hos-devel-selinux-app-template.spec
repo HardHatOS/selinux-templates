@@ -10,7 +10,7 @@ URL: https://github.com/HardHatOS/selinux-app-MODULE
 Version: 1.0
 
 %description
-Description
+Hard Hat OS (HOS) SELinux access interfaces for MODULE
 
 %pre
 # RPM macro that defines the SELinux directory where the interface files are placed in
