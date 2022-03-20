@@ -5,7 +5,7 @@ Name: hos-selinux-label-MODULE
 Release: 1%{?dist}
 Requires: policycoreutils, libselinux-utils
 Source0: MODULE.te
-Summary: SELinux policy module for the TARGET directory
+Summary: SELinux policy module (label only) for the TARGET directory
 URL: https://github.com/HardHatOS/selinux-app-MODULE
 Version: 1.0
 
