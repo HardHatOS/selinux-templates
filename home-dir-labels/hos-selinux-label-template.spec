@@ -20,7 +20,7 @@ SELinux policy module (label only) for the $HOME/TARGET directory
 %define _pp "%{_module}.pp"
 
 # RPM macro function for relabeling the specified file(s) and/or directory/directories
-%define relabel() restorecon -R -v /etc /usr
+%define relabel() restorecon -R -v /home
 
 %build
 # Copy the SELinux .te file to the current directory
