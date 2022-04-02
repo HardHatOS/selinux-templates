@@ -1,12 +1,14 @@
+%global modulename MODULENAME
+
+%{?selinux_requires}
 BuildArch: noarch
-BuildRequires: hos-devel-selinux-interfaces, make, selinux-policy-devel
+BuildRequires: hos-devel-selinux-interfaces
 License: AGPLv3+
-Name: hos-devel-selinux-app-MODULE
+Name: hos-devel-selinux-app-%{modulename}
 Release: 1%{?dist}
-Requires: policycoreutils, libselinux-utils
-Source0: MODULE.if
+Source0: %{modulename}.if
 Summary: SELinux access interfaces for MODULE
-URL: https://github.com/HardHatOS/selinux-app-MODULE
+URL: https://github.com/HardHatOS/selinux-app-%{modulename}
 Version: 1.0
 
 %description
@@ -21,4 +23,4 @@ Hard Hat OS (HOS) SELinux access interfaces for MODULE
 %{__install} -D -m 0644 %{SOURCE0} -t %{buildroot}%{_contribdir}
 
 %files
-%attr(0644,root,root) %{_contribdir}/*.if
+%{_contribdir}/%{modulename}.if
