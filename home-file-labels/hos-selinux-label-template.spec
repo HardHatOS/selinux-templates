@@ -26,6 +26,9 @@ SELinux policy module (label only) for TARGET files within the $HOME directory
 # RPM macro to define the filename of the compressed SELinux policy module
 %define _pp_bz2 %{_pp}.bz2
 
+# RPM macro for relabeling the specified files/directories
+%define relabel() restorecon -R -v /home
+
 # RPM macro for SELinux preparation
 %selinux_relabel_pre -s %{selinuxtype}
 
@@ -54,8 +57,9 @@ if [ $1 -eq 0 ]; then
 fi
 
 %posttrans
-# Relabel the specified file(s) and/or directory/directories after every transaction
+# Relabel the specified file(s) and/or directories after every transaction
 %selinux_relabel_post -s %{selinuxtype}
+%{relabel}
 
 %files
 %{_datadir}/selinux/packages/%{selinuxtype}/%{_pp_bz2}
