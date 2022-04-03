@@ -11,12 +11,12 @@ Requires(post): selinux-policy-%{selinuxtype}
 Source0: %{modulename}.fc
 Source1: %{modulename}.if
 Source2: %{modulename}.te
-Summary: SELinux policy module for MODULE
+Summary: SELinux policy module for TARGET
 URL: https://github.com/HardHatOS/selinux-app-%{modulename}
 Version: 1.0
 
 %description
-Hard Hat OS (HOS) SELinux policy module for MODULE
+Hard Hat OS (HOS) SELinux policy module for TARGET
 
 %pre
 # RPM macro to define the filename of the compiled SELinux policy module
