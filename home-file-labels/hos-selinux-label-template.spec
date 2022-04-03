@@ -54,6 +54,8 @@ SELinux policy module (label only) for TARGET files within the $HOME directory
 if [ $1 -eq 0 ]; then
     # Uninstall the specified SELinux policy module
     %selinux_modules_uninstall -s %{selinuxtype} %{modulename}
+    # Relabel the specified file(s) and/or directories
+    %{relabel}
 fi
 
 %posttrans

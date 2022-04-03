@@ -54,6 +54,8 @@ Hard Hat OS (HOS) SELinux policy module for MODULE
 if [ $1 -eq 0 ]; then
     # Uninstall the specified SELinux policy module
     %selinux_modules_uninstall -s %{selinuxtype} %{modulename}
+    # Relabel the specified file(s) and/or directories
+    %{relabel}
 fi
 
 %posttrans
