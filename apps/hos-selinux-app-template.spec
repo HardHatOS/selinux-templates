@@ -1,9 +1,8 @@
 %global modulename MODULENAME
 %global selinuxtype targeted
 
-%{?selinux_requires}
 BuildArch: noarch
-BuildRequires: hos-devel-selinux-interfaces
+BuildRequires: bzip2, hos-devel-selinux-interfaces, make, selinux-policy-devel
 License: AGPLv3+
 Name: hos-selinux-app-%{modulename}
 Release: 1%{?dist}
