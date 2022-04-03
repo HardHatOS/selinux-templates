@@ -1,18 +1,18 @@
 %global modulename MODULENAME
 
-%{?selinux_requires}
 BuildArch: noarch
 BuildRequires: hos-devel-selinux-interfaces
 License: AGPLv3+
 Name: hos-devel-selinux-label-%{modulename}
 Release: 1%{?dist}
+Requires: selinux-policy-devel
 Source0: %{modulename}.if
-Summary: SELinux access interfaces for the Desktop directory
+Summary: SELinux access interfaces for the TARGET directory
 URL: https://github.com/HardHatOS/selinux-label-home/%{modulename}
 Version: 1.0
 
 %description
-SELinux access interfaces for the $HOME/Desktop directory
+SELinux access interfaces for the $HOME/TARGET directory
 
 %pre
 # RPM macro that defines the SELinux directory where the interface files are placed in
