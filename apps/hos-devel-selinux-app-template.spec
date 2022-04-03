@@ -1,11 +1,11 @@
 %global modulename MODULENAME
 
-%{?selinux_requires}
 BuildArch: noarch
 BuildRequires: hos-devel-selinux-interfaces
 License: AGPLv3+
 Name: hos-devel-selinux-app-%{modulename}
 Release: 1%{?dist}
+Requires: selinux-policy-devel
 Source0: %{modulename}.if
 Summary: SELinux access interfaces for MODULE
 URL: https://github.com/HardHatOS/selinux-app-%{modulename}
