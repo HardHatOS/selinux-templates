@@ -14,9 +14,9 @@ role MODULE_roles types MODULE_t;
 type MODULE_t;
 type MODULE_exec_t;
 application_domain(MODULE_t, MODULE_exec_t);
-hos_domain_auto_transition_pattern(user_t, MODULE_exec_t, MODULE_t);
+domain_auto_transition_pattern(user_t, MODULE_exec_t, MODULE_t);
 
 # Types (Configuration Directories & Files)
 # type MODULE_etc_t;
-# hos_files_config_file(MODULE_etc_t);
+# files_config_file(MODULE_etc_t);
 ########################################
